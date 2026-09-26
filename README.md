@@ -7,11 +7,11 @@ This repository contains the Proof of Concept demonstrating the integration of N
 ## Architecture & Conceptual Design
 
 ### Use Case Diagram
-<img width="982" height="756" alt="image" src="https://github.com/user-attachments/assets/f0391d87-fe28-4880-b8ae-ad50d8a42c61" />
+<img width="491" height="378" alt="image" src="https://github.com/user-attachments/assets/f0391d87-fe28-4880-b8ae-ad50d8a42c61" />
 
 
 ### Class Diagram
-<img width="986" height="1344" alt="image" src="https://github.com/user-attachments/assets/5e77d488-ffa6-45b4-b45a-7c62b0f4749a" />
+<img width="493" height="672" alt="image" src="https://github.com/user-attachments/assets/5e77d488-ffa6-45b4-b45a-7c62b0f4749a" />
 
 
 ## Prerequisites & Environment
