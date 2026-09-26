@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Fantasy Manager\n(User)" as User
+actor "NFL Data API\n(nfl_data_py)" as DataAPI
+
+rectangle "Fantasy AI System" {
+    usecase "Fetch Play-by-Play Data" as UC1
+    usecase "Train / Execute Model" as UC2
+    usecase "Filter Projections by\nPosition & Format" as UC3
+    usecase "View Model Evaluation\nMetrics (RMSE)" as UC4
+}
+
+DataAPI --> UC1
+UC1 .> UC2 : <<include>>
+User --> UC3
+User --> UC4
+UC3 .> UC2 : <<extend>>
+@startuml

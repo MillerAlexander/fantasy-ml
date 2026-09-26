@@ -1,0 +1,49 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class DataLoader {
+    - seasonYear: int
+    - columns: List<string>
+    + fetchPlayByPlayData(): DataFrame
+    + cleanAndTransform(): DataFrame
+}
+
+class PlayerStats {
+    + playerId: string
+    + playerName: string
+    + position: string
+    + expectedPointsAdded: float
+    + fantasyPointsPPR: float
+}
+
+abstract class PredictionModel {
+    # modelType: string
+    # hyperparameters: dict
+    + train(data: DataFrame): void
+    + predict(player: PlayerStats): float
+    + evaluateRMSE(): float
+}
+
+class NeuralNetModel {
+    - layers: int
+    - epochs: int
+    + train(data: DataFrame): void
+}
+
+class RidgeRegressionModel {
+    - alpha: float
+    + train(data: DataFrame): void
+}
+
+class DashboardController {
+    - app: Flask
+    + renderDashboard(): string
+    + getFilteredProjections(): json
+}
+
+DataLoader "1" --> "*" PlayerStats : produces
+PlayerStats "*" <-- "1" PredictionModel : evaluates
+PredictionModel <|-- NeuralNetModel : inherits
+PredictionModel <|-- RidgeRegressionModel : inherits
+DashboardController "1" --> "1" PredictionModel : queries
+@startuml
